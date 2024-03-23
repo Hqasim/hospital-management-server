@@ -4,8 +4,10 @@
   "description": "Backend of Hospital Management",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node ./scripts/nodeVersionCheck && index.js",
+    "dev": "node ./scripts/nodeVersionCheck && nodemon index.js",
+    "test": "node ./scripts/nodeVersionCheck",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,7 @@
     "pg": "^8.11.3"
   },
   "devDependencies": {
+    "husky": "^9.0.11",
     "nodemon": "^3.0.2"
   }
 }
