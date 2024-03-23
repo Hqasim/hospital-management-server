@@ -2,10 +2,10 @@
   "name": "hospital-management-server",
   "version": "1.0.0",
   "description": "Backend of Hospital Management",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./scripts/nodeVersionCheck && index.js",
-    "dev": "node ./scripts/nodeVersionCheck && nodemon index.js",
+    "start": "node ./scripts/nodeVersionCheck && app.js",
+    "dev": "node ./scripts/nodeVersionCheck && nodemon app.js",
     "test": "node ./scripts/nodeVersionCheck",
     "prepare": "husky"
   },
@@ -13,8 +13,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.3"
   },
   "devDependencies": {
