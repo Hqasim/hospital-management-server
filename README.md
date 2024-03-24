@@ -16,3 +16,7 @@ Backend of Hospital Management
 ## Author
 
 Hamzah Qasim
+
+## Bookmark
+
+- https://www.scaler.com/topics/expressjs-tutorial/sequelize_with_express_js/ Use this to setup sequalize ORM with Postgres

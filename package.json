@@ -4,7 +4,7 @@
   "description": "Backend of Hospital Management",
   "main": "app.js",
   "scripts": {
-    "start": "node ./scripts/nodeVersionCheck && app.js",
+    "start": "node ./scripts/nodeVersionCheck && node app.js",
     "dev": "node ./scripts/nodeVersionCheck && nodemon app.js",
     "test": "node ./scripts/nodeVersionCheck",
     "prepare": "husky"
@@ -18,7 +18,9 @@
     "express": "^4.18.2",
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.1"
   },
   "devDependencies": {
     "husky": "^9.0.11",
