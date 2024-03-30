@@ -1,7 +1,8 @@
 const express = require("express");
+require("dotenv").config();
 const db = require("./db/db.connection");
 const UserModel = require("./models/User");
-require("dotenv").config();
+const { router } = require("./routes/routes");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -12,10 +13,8 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// Home route
-app.get("/", (req, res) => {
-  res.json({ message: "Hospital Management System Back-end!" });
-});
+// Register routes
+app.use("/", router);
 
 // Initiate server
 (async () => {
