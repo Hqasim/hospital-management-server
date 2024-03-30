@@ -1,7 +1,9 @@
 const express = require("express");
-require("dotenv").config();
 const db = require("./db/db.connection");
+const UserModel = require("./models/User");
+require("dotenv").config();
 
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // parse requests of content-type - application/json
@@ -11,24 +13,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Home route
-app.get("/", (request, response) => {
-  response.json({ message: "Hospital Management System Back-end" });
+app.get("/", (req, res) => {
+  res.json({ message: "Hospital Management System Back-end!" });
 });
 
-const PORT = process.env.PORT || 3000;
-
-// DB connection check
+// Initiate server
 (async () => {
   try {
-    console.log("Testing the database connection...");
     await db.authenticate();
-    console.log("Connection has been established successfully.");
+    console.log("DB: connection established");
+
+    // Syncronize db models.
+    await UserModel.sync({ alter: true });
+    console.log("DB: models synced");
+
+    // Server listen
+    app.listen(PORT, () => {
+      console.log(`Server: started on port ${PORT}.`);
+    });
   } catch (error) {
-    console.error("Unable to connect to the database:", error);
+    console.log(error);
+    console.log("DB: failed to authenticate");
+    console.log("Server: failed to start");
   }
 })();
-
-// Server listen
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}.`);
-});
