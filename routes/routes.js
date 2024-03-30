@@ -1,6 +1,9 @@
 const router = require("express").Router();
-const { registerUser } = require("../controllers/userController");
-const { registerValidator } = require("../validators/userValidator");
+const { registerUser, loginUser } = require("../controllers/userController");
+const {
+  registerValidator,
+  loginValidator,
+} = require("../validators/userValidator");
 
 // Home route
 router.get("/", (req, res) => {
@@ -9,5 +12,6 @@ router.get("/", (req, res) => {
 
 // User routes
 router.post("/user/register", registerValidator, registerUser);
+router.post("/user/login", loginValidator, loginUser);
 
 module.exports = { router };

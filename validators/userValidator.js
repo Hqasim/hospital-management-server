@@ -8,3 +8,8 @@ exports.registerValidator = [
   body("first_name").not().isEmpty().withMessage("First name is required"),
   body("last_name").not().isEmpty().withMessage("Last name is required"),
 ];
+
+exports.loginValidator = [
+  body("email").not().isEmpty().withMessage("Email is required"),
+  body("password").not().isEmpty().withMessage("Password is required"),
+];
